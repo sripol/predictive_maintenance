@@ -20,7 +20,7 @@ jobs:
       - name: Convert notebook to script
         run: |
           pip install nbconvert nbformat
-          jupyter nbconvert --to script train_test_split.ipynb --output train_test_split.py
+          jupyter nbconvert --to script train_test_split.ipynb --output train_test_split
 
       - name: Run train/test split
         run: python train_test_split.py
