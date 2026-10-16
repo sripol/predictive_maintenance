@@ -21,6 +21,7 @@ jobs:
         run: |
           pip install nbconvert nbformat
           jupyter nbconvert --to script train_test_split.ipynb
+          mv train_test_split.txt train_test_split.py
 
       - name: Run train/test split
         run: python train_test_split.py
