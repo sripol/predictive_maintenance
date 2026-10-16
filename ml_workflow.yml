@@ -1,0 +1,25 @@
+name: ML pipeline
+on: [push]
+jobs:
+  capstone_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: File Checkout
+        uses: actions/checkout@v3
+        
+      - name: python setup
+        uses: actions/setup-python@v4
+        with:
+           python-version: '3.10'
+           
+      - name: Install dependencies from requirements.txt
+        run: python -m pip install --upgrade pip |
+             pip install -r requirements.txt
+      - name: Convert notebook
+        run: |
+           pip install nbconvert nbformat
+           jupyter nbconvert --to notebook --execute train_test
+      - name: run train test split
+        run: python train-test-split.py
+      
+      
