@@ -23,7 +23,6 @@ import os
 #MODEL_PATH =  f'{BASE_DIR}/model/'
 
 #Used with Github actions
-BASE_DIR = './'
 DATA_PATH = 'data/'
 ARTIFACTS_PATH = 'artifacts/'
 MODEL_PATH = 'model/'
@@ -36,8 +35,8 @@ elif not os.path.exists(f'{DATA_PATH}/engine_data.csv'):
 
 df = pd.read_csv(f'{DATA_PATH}/engine_data.csv')
 
-os.makedirs(os.path.join(BASE_DIR, 'artifacts'), exist_ok=True)
-os.makedirs(os.path.join(BASE_DIR, 'model'), exist_ok=True)
+os.makedirs('artifacts', exist_ok=True)
+os.makedirs('model', exist_ok=True)
 
 Expected_columns = ["Engine rpm",	"Lub oil pressure",	"Fuel pressure",	"Coolant pressure", "lub oil temp", "Coolant temp",	"Engine Condition"]
 for col in df.columns:
