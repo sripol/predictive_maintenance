@@ -22,7 +22,7 @@ st.divider()
 
 from numpy import load
 if st.button("Predict"):
-    model = joblib.load(f'{MODEL_PATH}/tf_model.pkl')
+    model = joblib.load(f'{MODEL_PATH}/tf_model.joblib')
     input_data = pd.DataFrame([{
         "Engine rpm": Engine_rpm,
         "Lub oil pressure": Lub_oil_pressure,
