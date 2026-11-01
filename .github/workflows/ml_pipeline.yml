@@ -20,9 +20,16 @@ jobs:
       - name: Convert notebook to script
         run: |
           pip install nbconvert nbformat
-          jupyter nbconvert --to script train_test_split.ipynb
-          mv train_test_split.txt train_test_split.py
+          jupyter nbconvert --to script Srikanth_Predictive_Maintenance_InterimReport_Notebook.ipynb
+          mv Srikanth_Predictive_Maintenance_InterimReport_Notebook.txt Srikanth_Predictive_Maintenance_InterimReport_Notebook.py
+          jupyter nbconvert --to script app.ipynb 
+          mv app.txt app.py
 
-      - name: Run train/test split
-        run: python train_test_split.py
+      - name: Update Model whenever there is a checkin
+        run: python Srikanth_Predictive_Maintenance_InterimReport_Notebook.py
+
+      - name: Validate Streamlit code is sintax error free
+        run: |
+          python -m py_compile app.py
+        
 
