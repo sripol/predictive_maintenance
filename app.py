@@ -34,10 +34,12 @@ if st.button("Predict"):
         }])
     input_scaled = scaler.transform(input_data)
     prediction = model.predict(input_scaled)
+    if prediction[0] > 0.5:
+        st.info("Engine condition is Good")
     st.write(f"Prediction: {prediction[0]}")
     if prediction[0] < 0.5:
-      st.info("Engine condition is Good")
-    elif prediction[0] > 0.5:
+      st.info("Engine condition is normal")
+    elif prediction[0] == 1:
       st.info("Engine condition is Faulty")
 
 
